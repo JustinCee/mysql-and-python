@@ -42,8 +42,9 @@ def logging_in():
         for i in mycursor:
             if user_name_entry.get() == i[0] and password_entry.get() == i[1]:
                 messagebox.showinfo('Access Granted', 'welcome to hospital')
-                import next_screen
                 window.destroy()
+                import next_screen
+
             elif user_name_entry.get() != i[0] and password_entry.get() != i[0]:
                 messagebox.showinfo('Login Error', 'Please type in the correct details')
 
@@ -55,7 +56,7 @@ user_name_entry.place(x=220, y=30)
 
 password_label = Label(window, text='Please enter your password', bg='yellow')
 password_label.place(x=5, y=100)
-password_entry = Entry(window)
+password_entry = Entry(window, show='*')
 password_entry.place(x=220, y=100)
 
 login_btn = Button(window, text='Login', fg='green', command=logging_in)
